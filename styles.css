@@ -1,13 +1,13 @@
 @import url('https://fonts.cdnfonts.com/css/poppins');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;                               
 }
 
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,14 +31,13 @@ header {
     z-index: 99;
 }
 
-
-.logo{
+.logo {
     font-size: 2em;
     color: aliceblue;
     user-select: none;
 }
 
-.navigation a{
+.navigation a {
     position: relative;
     font-size: 1.1em;
     color: #fff;
@@ -47,7 +46,7 @@ header {
     margin-left: 40px;
 }
 
-.navigation a::after{
+.navigation a::after {
     content: '';
     position: absolute;
     left: 0;
@@ -61,12 +60,13 @@ header {
     transition: transform .5s;
 }
 
-.navigation a:hover::after{
+.navigation a:hover::after {
     transform-origin: right;
     transform: scaleX(1);
+    
 }
 
-.navigation .btnLogin-popup{
+.navigation .btnLogin-popup {
     width: 130px;
     height: 50px;
     background: transparent;
@@ -79,11 +79,13 @@ header {
     font-weight: 500;
     margin-left: 40px;
 }
-.navigation .btnLogin-popup:hover{
+
+.navigation .btnLogin-popup:hover {
     background-color: #fff;
     color: #05190A;
 }
-.wrapper{
+
+.wrapper {
     position: relative;
     width: 400px;
     height: 440px;
@@ -97,10 +99,25 @@ header {
     align-items: center;
     transform: scale(0);
     overflow: hidden;
-    transition: transform .5s ease, height .2s ease;
+    transition: transform .5s ease, height .2s ease, border-color 0.5s ease; /* Add border-color transition */
+}
+.wrapper:hover {
+    border-color: #fff; /* Change to desired border color on hover */
+    animation: border-glow 1s infinite alternate; /* Adding the border animation */
 }
 
-.wrapper.active-popup{
+@keyframes border-glow {
+    from {
+        border-color: #fff;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    to {
+        border-color: #05190A;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    }
+}
+
+.wrapper.active-popup {
     transform: scale(1);
 }
 
@@ -108,34 +125,33 @@ header {
     height: 520px;
 }
 
-.wrapper .form-box{
+.wrapper .form-box {
     width: 100%;
     padding: 40px;
 }
 
-.wrapper .form-box.login{
-  transition: transform .18s ease;
-  transform: translateX(0);
+.wrapper .form-box.login {
+    transition: transform .18s ease;
+    transform: translateX(0);
 }
 
-.wrapper.active .form-box.login{
+.wrapper.active .form-box.login {
     transition: none;
     transform: translateX(-400px);
-    /* display: none; */
 }
 
-.wrapper .form-box.register{
+.wrapper .form-box.register {
     position: absolute;
     transition: none;
     transform: translateX(400px);
 }
 
-.wrapper.active .form-box.register{
+.wrapper.active .form-box.register {
     transition: transform .18s ease;
     transform: translateX(0);
-  }
+}
 
-.wrapper .icon-close{
+.wrapper .icon-close {
     position: absolute;
     top: 0;
     right: 0;
@@ -151,19 +167,22 @@ header {
     cursor: pointer;
     z-index: 1;
 }
-.form-box h2{
+
+.form-box h2 {
     font-size: 2em;
     color: #05190A;
     text-align: center;
 }
-.input-box{
+
+.input-box {
     position: relative;
     width: 100%;
     height: 50px;
     border-bottom: 2px solid #05190A;
     margin: 30px 0;
 }
-.input-box label{
+
+.input-box label {
     position: absolute;
     top: 50%;
     left: 5px;
@@ -174,13 +193,13 @@ header {
     pointer-events: none;
     transition: .5s;
 }
+
 .input-box input:focus~label,
-.input-box input:valid~label{
+.input-box input:valid~label {
     top: -5px;
 }
 
-
-.input-box input{
+.input-box input {
     width: 100%;
     height: 100%;
     background: transparent;
@@ -191,14 +210,16 @@ header {
     font-weight: 600;
     padding: 0 35px 0 5px;
 }
-.input-box .icon{
+
+.input-box .icon {
     position: absolute;
     right: 8px;
     font-size: 1.2em;
     color: #05190A;
     line-height: 57px;
 }
-.remember-forgot{
+
+.remember-forgot {
     font-size: .9em;
     color: #05190A;
     font-weight: 500;
@@ -207,19 +228,21 @@ header {
     justify-content: space-between;
 }
 
-.remember-forgot label input{
+.remember-forgot label input {
     accent-color: #05190A;
     margin-right: 3px;
 }
-.remember-forgot a{
+
+.remember-forgot a {
     color: #05190A;
     text-decoration: none;
 }
 
-.remember-forgot a:hover{
+.remember-forgot a:hover {
     text-decoration: underline;
 }
-.btn{
+
+.btn {
     width: 100%;
     height: 45px;
     background-color: #05190A;
@@ -232,19 +255,59 @@ header {
     font-weight: 500;
 }
 
-.login-register{
+.login-register {
     font-size: .9em;
-    color: #c2ffa8;
+    color: #c9c8c8;
     text-align: center;
     font-weight: 500;
     margin: 25px 0 10px;
 }
+
 .login-register p a {
-    color: #bfdbb6;
+    color: #9a9a9a;
     text-decoration: none;
     font-weight: 600;
 }
 
-.login-register p a:hover{
+.login-register p a:hover {
     text-decoration: underline;
+}
+
+
+/* Add this CSS code to your existing stylesheet */
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2); /* Glass background color */
+    backdrop-filter: blur(10px); /* Adding the glass effect */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 10px;
+}
+
+.footer-content p {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.5em;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: #05190A; /* Change to your desired hover color */
 }
