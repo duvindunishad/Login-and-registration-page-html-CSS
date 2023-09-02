@@ -24,3 +24,5 @@ registerLink.addEventListener('click', activateCoverBox);
 loginLink.addEventListener('click', deactivateCoverBox);
 btnPopup.addEventListener('click', activatePopup);
 iconClose.addEventListener('click', deactivatePopup);
+
+
